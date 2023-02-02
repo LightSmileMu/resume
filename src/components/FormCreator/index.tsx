@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, InputNumber, Button, Checkbox, Select } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
-import _ from 'lodash-es';
+import _, { isArray, isString } from 'lodash-es';
 import { ColorPicker } from './ColorPicker';
 import { getLocale } from '@/locale';
 
@@ -59,9 +59,13 @@ export const FormCreator: React.FC<Props> = props => {
   }, [props.value]);
 
   const handleChange = (values: any) => {
-    if ('edu_time' in values) {
-      values.edu_time = values.edu_time.split(',');
-    }
+    _.map(['edu_time', 'work_time'], item => {
+      if (item in values) {
+        const v = _.get(values, item);
+        _.set(values, item, isString(v) ? v.split(',') : v);
+      }
+    });
+
     props.onChange(values);
   };
   const formProps = {

@@ -11,6 +11,8 @@ import {
   CrownFilled,
   EnvironmentFilled,
   HeartFilled,
+  MobileTwoTone,
+  MailTwoTone,
 } from '@ant-design/icons';
 import _ from 'lodash-es';
 import { getLocale } from '@/locale';
@@ -93,14 +95,26 @@ export const Template1: React.FC<Props> = props => {
           <div className="profile-list">
             {profile?.mobile && (
               <div className="email">
-                <MobileFilled style={{ color: theme.color, opacity: 0.85 }} />
-                {profile.mobile}
+                <MobileTwoTone
+                  twoToneColor={theme.color}
+                  style={{ color: theme.color, opacity: 0.85 }}
+                />
+                <span>
+                  {i18n.get('手机：')}
+                  {profile.mobile}
+                </span>
               </div>
             )}
             {profile?.email && (
               <div className="email">
-                <MailFilled style={{ color: theme.color, opacity: 0.85 }} />
-                {profile.email}
+                <MailTwoTone
+                  twoToneColor={theme.color}
+                  style={{ color: theme.color, opacity: 0.85 }}
+                />
+                <span>
+                  {i18n.get('邮箱：')}
+                  {profile.email}
+                </span>
               </div>
             )}
             {profile?.github && (
@@ -349,12 +363,12 @@ export const Template1: React.FC<Props> = props => {
                           </Tag>
                         )}
                       </div>
-                      <div className="section-detail">
+                      {/* <div className="section-detail">
                         <b>{i18n.get('项目描述')}：</b>
                         <span>{project.project_desc}</span>
-                      </div>
+                      </div> */}
                       <div className="section-detail">
-                        <b>{i18n.get('主要工作')}：</b>
+                        <b>{i18n.get('工作内容')}：</b>
                         <span className="project-content">
                           {project.project_content}
                         </span>

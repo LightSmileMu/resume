@@ -155,6 +155,22 @@ export const CONTENT_OF_MODULE = ({ i18n }) => {
         attributeId: 'major',
         displayName: i18n.get('专业'),
       },
+      {
+        type: 'select',
+        attributeId: 'academic_degree',
+        displayName: i18n.get('学历'),
+        cfg: {
+          defaultValue: '',
+          options: [
+            { value: '', label: i18n.get('') },
+            { value: '博士', label: i18n.get('博士') },
+            { value: '研究生', label: i18n.get('研究生') },
+            { value: '本科', label: i18n.get('本科') },
+            { value: '专科', label: i18n.get('专科') },
+            { value: '高中', label: i18n.get('高中') },
+          ],
+        },
+      },
     ],
     projectList: [
       {

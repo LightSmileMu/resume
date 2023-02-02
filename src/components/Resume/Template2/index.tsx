@@ -341,12 +341,12 @@ export const Template2: React.FC<Props> = props => {
                         <Tag color={theme.tagColor}>{project.project_role}</Tag>
                       )}
                     </div>
-                    <div className="section-detail">
+                    {/* <div className="section-detail">
                       <span>{i18n.get('项目描述')}：</span>
                       <span>{project.project_desc}</span>
-                    </div>
+                    </div> */}
                     <div className="section-detail">
-                      <span>{i18n.get('主要工作')}：</span>
+                      <span>{i18n.get('工作内容')}：</span>
                       <span className="project-content">
                         {project.project_content}
                       </span>
